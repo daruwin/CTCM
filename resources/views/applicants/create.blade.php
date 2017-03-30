@@ -8,11 +8,11 @@
 <div class="panel-heading">Formulario de postulación</div>
 <div class="panel-body">
 {!! Form::open(['url'=>'applicants'])!!}
- {!! Field::text('first_name', ['label' => 'Primer nombre']) !!}
+ {!! Field::text('first_name') !!}
 {!! Field::text('last_name')!!}
 {!! Field::text('dni') !!}
 {!! Field::text('phone')!!}
-{!! Field::text('email') !!}
+{!! Field::email('email') !!}
 {!! Form::submit('Postular') !!}
 {!!Form::close()!!}
 
