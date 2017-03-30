@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::resource('classrooms', 'ClassroomController');
+Route::resource('applicants', 'ApplicantController');

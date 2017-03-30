@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use app\Applicant;
+use App\Applicant;
 use Illuminate\Http\Request;
 
 class ApplicantController extends Controller
@@ -38,6 +38,7 @@ class ApplicantController extends Controller
     {
         $applicant = new Applicant();
         $applicant->first_name = $request->first_name;
+        $applicant->last_name = $request->last_name;
 	$applicant->dni = $request->dni;
 	$applicant->phone = $request->phone;
 	$applicant->email = $request->email;
