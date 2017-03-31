@@ -67,7 +67,7 @@ class ApplicantController extends Controller
     public function edit(Applicant $applicant)
     {
         $found_applicant = Applicant::where('id', $applicant->id)->first();
-        return view('applicant.edit')->with('applicant', $found_applicant);
+        return view('applicants.edit')->with('applicant', $found_applicant);
     }
 
     /**
