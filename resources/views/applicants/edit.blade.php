@@ -7,7 +7,7 @@
 <div class="panel panel-default">
 <div class="panel-heading">Formulario de postulación</div>
 <div class="panel-body">
-{!! Form::open(['url'=>'applicants'])!!}
+{!! Form::open($applicant,['route=>['applicants.update',$applicant],'method'=>'put'])!!}
  {!! Field::text('first_name') !!}
 {!! Field::text('last_name')!!}
 {!! Field::text('dni') !!}
