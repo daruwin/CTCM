@@ -1,5 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +23,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::resource('classrooms', 'ClassroomController');
+
 Route::resource('applicants', 'ApplicantController');
+Route::get('/applicants.data', 'ApplicantController@Data')->name('applicants.data');
+Route::get('/applicants.delete/{id}', function($id) {
+	DB::table('applicants')->where('id', $id)->delete();
+	return redirect()->action('ApplicantController@index');
+});
+
 Route::resource('primary_topics', 'PrimaryTopicController');
 Route::resource('proposals', 'ProposalController');
 Route::resource('schedules', 'ScheduleController');
