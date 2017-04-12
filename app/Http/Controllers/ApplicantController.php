@@ -28,11 +28,10 @@ class ApplicantController extends Controller
     	return Datatables::of(Applicant::query())
 	    ->addColumn('action', function ($applicant) {
 	    	return '<a href="applicants/'.$applicant->id.'/edit" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-			<a href="applicants.delete/'.$applicant->id.'" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit"></i> Delete</a>
+			<a href="applicants.delete/'.$applicant->id.'" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-edit"></i> Delete</a>
 			';
 	    	//return view('applicants.actions', compact('applicant'))->render();
-	    })
-	    ->make(true);
+	    })->make(true);
     }
 
     /**
@@ -56,9 +55,9 @@ class ApplicantController extends Controller
         $applicant = new Applicant();
         $applicant->first_name = $request->first_name;
         $applicant->last_name = $request->last_name;
-	$applicant->dni = $request->dni;
-	$applicant->phone = $request->phone;
-	$applicant->email = $request->email;
+    	$applicant->dni = $request->dni;
+    	$applicant->phone = $request->phone;
+    	$applicant->email = $request->email;
         $applicant->save();
         return redirect()->action('ApplicantController@index');
     }
@@ -96,11 +95,12 @@ class ApplicantController extends Controller
      */
     public function update(Request $request, Applicant $applicant)
     {
-        $found_applicant = Applicant::find($classroom->id);
+        $found_applicant = applicant::find($applicant->id);
         $found_applicant->first_name = $request->first_name;
-	$found_applicant->dni = $request->dni;
-	$found_applicant->phone = $request->phone;
-	$found_applicant->email = $request->email;
+    	$found_applicant->last_name = $request->last_name;
+        $found_applicant->dni = $request->dni;
+    	$found_applicant->phone = $request->phone;
+    	$found_applicant->email = $request->email;
         $found_applicant->save();
         return redirect()->action('ApplicantController@index');
     }

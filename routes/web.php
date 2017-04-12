@@ -23,6 +23,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::resource('classrooms', 'ClassroomController');
+Route::get('/classrooms.data', 'ClassroomController@Data')->name('classrooms.data');
+Route::get('/classrooms.delete/{id}', function($id) {
+	DB::table('classrooms')->where('id', $id)->delete();
+	return redirect()->action('ClassroomController@index');
+});
+
+
 
 Route::resource('applicants', 'ApplicantController');
 Route::get('/applicants.data', 'ApplicantController@Data')->name('applicants.data');

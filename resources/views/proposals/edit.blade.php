@@ -11,8 +11,3 @@
 {!! Form::submit('Proponer') !!}
 {!!Form::close()!!}
 @endsection
-
-
-
-
-

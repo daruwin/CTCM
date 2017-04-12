@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Classroom;
 use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
 
 class ClassroomController extends Controller
 {
@@ -14,10 +15,18 @@ class ClassroomController extends Controller
      */
     public function index()
     {
-        $classrooms = Classroom::all();
-        return view('classrooms.index')->with('classrooms', $classrooms);
+        return view('classrooms.index');
     }
 
+    public function Data()
+    {
+        return Datatables::of(Classroom::query())
+        ->addColumn('action', function ($classroom) {
+            return '<a href="classrooms/'.$classroom->id.'/edit" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+            <a href="classrooms.delete/'.$classroom->id.'" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-edit"></i> Delete</a>
+            ';
+        })->make(true);
+    }
     /**
      * Show the form for creating a new resource.
      *
