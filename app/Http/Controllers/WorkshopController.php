@@ -13,8 +13,7 @@ class WorkshopController extends Controller
      */
     public function index()
     {
-        $workshops = Workshop::all();
-        return view('workshop.index')->with('workshops', $workshops);
+        return view('workshop.index');
     }
 
     /**
@@ -22,6 +21,17 @@ class WorkshopController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    public function Data()
+    {
+    	return Datatables::of(Workshop::query())
+    	->addColumn('action', function ($workshop) {
+    		return '<a href="classrooms/'.$workshop->id.'/edit" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+            <a href="classrooms.delete/'.$$workshop->id.'" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-edit"></i> Delete</a>
+            ';
+    	})->make(true);
+    }
+    
     public function create()
     {
         return view('workshops.create');

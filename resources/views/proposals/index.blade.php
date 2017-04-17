@@ -4,10 +4,10 @@
 
 <th>Id</th>
 <th>Proposal name</th>
+<th>Temary</th> // Link to temaries list
+<th>Teacher</th>
 <th>Classroom</th>
-<th>Primary topic</th>
-<th>Secondary topic</th>
-<th>Schedule</th>
+//<th>Schedules</th> //Link to Schedules list
 <th>Created At</th>
 <th>Updated At</th>
 <th>Action</th>
@@ -21,7 +21,9 @@
 	columns: [
 		{ data: 'id', name: 'id' },
 		{ data: 'name', name: 'name' },
-		{ data: 'classroom', name: 'classroom' },
+		{ data: 'temary_id', name: 'temary_id' },
+		{ data: 'teacher_id', name: 'teacher_id' },
+		{ data: 'classroom_id', name: 'classroom_id' },
 		{ data: 'created_at', name: 'created_at' },
 		{ data: 'updated_at', name: 'updated_at' },
 		{ data: 'action', name: 'action', orderable: false, searchable: false}

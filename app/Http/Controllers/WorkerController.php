@@ -15,8 +15,7 @@ class WorkerController extends Controller
 	 */
 	public function index()
 	{
-		$worker = Worker::all();
-		return view('workers.index')->with('workers', $workers);
+		return view('workers.index');
 	}
 	
 	/**
@@ -24,6 +23,17 @@ class WorkerController extends Controller
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
+	
+	public function Data()
+	{
+		return Datatables::of(Worker::query())
+		->addColumn('action', function ($worker) {
+			return '<a href="classrooms/'.$worker->id.'/edit" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+            <a href="classrooms.delete/'.$worker->id.'" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-edit"></i> Delete</a>
+            ';
+		})->make(true);
+	}
+	
 	public function create()
 	{
 		return view('workers.create');

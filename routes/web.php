@@ -22,6 +22,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
 Route::resource('classrooms', 'ClassroomController');
 Route::get('/classrooms.data', 'ClassroomController@Data')->name('classrooms.data');
 Route::get('/classrooms.delete/{id}', function($id) {
@@ -30,19 +31,25 @@ Route::get('/classrooms.delete/{id}', function($id) {
 });
 
 
-
 Route::resource('applicants', 'ApplicantController');
 Route::get('/applicants.data', 'ApplicantController@Data')->name('applicants.data');
-Route::get('/applicants.delete/{id}', function($id) {
-	DB::table('applicants')->where('id', $id)->delete();
-	return redirect()->action('ApplicantController@index');
-});
 
-Route::resource('primary_topics', 'PrimaryTopicController');
 Route::resource('proposals', 'ProposalController');
-Route::resource('schedules', 'ScheduleController');
-Route::resource('secondary_topics', 'SecondaryTopicController');
+Route::get('/proposals.data', 'ProposalController@Data')->name('proposals.data');
+
 Route::resource('teachers', 'TeacherController');
-Route::resource('temaries', 'TemaryController');
+Route::get('/teachers.data', 'TeacherController@Data')->name('teachers.data');
+
 Route::resource('workers', 'WorkerController');
+Route::get('/workers.data', 'WorkerController@Data')->name('worksers.data');
+
 Route::resource('workshops', 'WorkshopController');
+Route::get('/workshops.data', 'WorkshopController@Data')->name('workshops.data');
+
+// Pendientes
+
+Route::resource('schedules', 'ScheduleController');
+
+Route::resource('temaries', 'TemaryController');
+Route::resource('primary_topics', 'PrimaryTopicController');
+Route::resource('secondary_topics', 'SecondaryTopicController');

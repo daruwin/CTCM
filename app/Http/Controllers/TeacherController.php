@@ -15,8 +15,7 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        $teacher = Teacher::all();
-        return view('teachers.index')->with('teachers', $teachers);
+        return view('teachers.index');
     }
 
     /**
@@ -24,6 +23,17 @@ class TeacherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    public function Data()
+    {
+    	return Datatables::of(Teacher::query())
+    	->addColumn('action', function ($teacher) {
+    		return '<a href="classrooms/'.$teacher->id.'/edit" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+            <a href="classrooms.delete/'.$teacher->id.'" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-edit"></i> Delete</a>
+            ';
+    	})->make(true);
+    }
+    
     public function create()
     {
         return view('teachers.create');

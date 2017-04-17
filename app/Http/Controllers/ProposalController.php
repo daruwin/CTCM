@@ -14,8 +14,7 @@ class ProposalController extends Controller
      */
     public function index()
     {
-        $proposals = Proposal::all();
-        return view('proposals.index')->with('proposals', $proposals);
+        return view('proposals.index');
     }
 
     /**
@@ -23,6 +22,17 @@ class ProposalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    public function Data()
+    {
+    	return Datatables::of(Classroom::query())
+    	->addColumn('action', function ($classroom) {
+    		return '<a href="classrooms/'.$classroom->id.'/edit" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+            <a href="classrooms.delete/'.$classroom->id.'" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-edit"></i> Delete</a>
+            ';
+    	})->make(true);
+    }
+    	
     public function create()
     {
         return view('proposals.create');

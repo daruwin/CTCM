@@ -1,4 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.index.app') 
 
-@section('content')
-@endsection
+@section('index_content')
+
+@stop
+
+@push('index_scripts')
+
+@endpush

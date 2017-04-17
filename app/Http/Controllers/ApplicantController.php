@@ -17,18 +17,13 @@ class ApplicantController extends Controller
     {
     	return view('applicants.index');
     	
-        /*
-        $applicants = Applicant::all();
-        return view('applicants.index')->with('applicants', $applicants);
-        */
     }
     
     public function Data()
     {
     	return Datatables::of(Applicant::query())
 	    ->addColumn('action', function ($applicant) {
-	    	return '<a href="applicants/'.$applicant->id.'/edit" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-			<a href="applicants.delete/'.$applicant->id.'" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-edit"></i> Delete</a>
+	    	return '<a href="applicants/'.$applicant->id.'/edit" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit"></i> Edit</a>	
 			';
 	    	//return view('applicants.actions', compact('applicant'))->render();
 	    })->make(true);

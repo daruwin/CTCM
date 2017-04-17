@@ -17,7 +17,7 @@
 
 @push('index_scripts')
 
-	ajax: '{!! route('applicants.data') !!}',
+	ajax: '{!! route('teachers.data') !!}',
 	columns: [
 		{ data: 'id', name: 'id' },
 		{ data: 'first_name', name: 'first_name' },
