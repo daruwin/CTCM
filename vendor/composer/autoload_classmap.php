@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddColumnsToWorkshopTable' => $baseDir . '/database/migrations/2017_04_17_174635_rename_proposals_table_to_workshops.php',
     'AddFkToApplicantWorkshopPivotTable' => $baseDir . '/database/migrations/2017_03_11_170211_add_fk_to_applicant_workshop_pivot_table.php',
     'AddFkToClassroomScheduleTable' => $baseDir . '/database/migrations/2017_03_11_165615_add_fk_to_classroom_schedule_table.php',
     'AddFkToPrimaryTopicsTable' => $baseDir . '/database/migrations/2017_03_11_160536_add_fk_to_primary_topics_table.php',
@@ -109,6 +110,7 @@ return array(
     'DeepCopy\\TypeFilter\\Spl\\SplDoublyLinkedList' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedList.php',
     'DeepCopy\\TypeFilter\\TypeFilter' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php',
     'DeepCopy\\TypeMatcher\\TypeMatcher' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/TypeMatcher/TypeMatcher.php',
+    'DeleteWorkshopTable' => $baseDir . '/database/migrations/2017_04_17_174537_delete_workshops_table.php',
     'Doctrine\\Common\\Inflector\\Inflector' => $vendorDir . '/doctrine/inflector/lib/Doctrine/Common/Inflector/Inflector.php',
     'Doctrine\\Instantiator\\Exception\\ExceptionInterface' => $vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator/Exception/ExceptionInterface.php',
     'Doctrine\\Instantiator\\Exception\\InvalidArgumentException' => $vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator/Exception/InvalidArgumentException.php',
@@ -2341,6 +2343,9 @@ return array(
     'Ramsey\\Uuid\\UuidFactory' => $vendorDir . '/ramsey/uuid/src/UuidFactory.php',
     'Ramsey\\Uuid\\UuidFactoryInterface' => $vendorDir . '/ramsey/uuid/src/UuidFactoryInterface.php',
     'Ramsey\\Uuid\\UuidInterface' => $vendorDir . '/ramsey/uuid/src/UuidInterface.php',
+    'RecreateApplicantWorkshop' => $baseDir . '/database/migrations/2017_04_17_182842_recreate_applicant_workshop.php',
+    'RecreateApplicantWorkshopTable' => $baseDir . '/database/migrations/2017_04_17_181055_add_columns_and_fks_to_workshops_table.php',
+    'RenameProposalTable' => $baseDir . '/database/migrations/2017_04_17_174607_delete_proposal_schedule_table.php',
     'SebastianBergmann\\CodeCoverage\\CodeCoverage' => $vendorDir . '/phpunit/php-code-coverage/src/CodeCoverage.php',
     'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => $vendorDir . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
     'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => $vendorDir . '/phpunit/php-code-coverage/src/Driver/Driver.php',

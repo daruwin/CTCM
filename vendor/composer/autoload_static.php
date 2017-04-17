@@ -292,6 +292,7 @@ class ComposerStaticInit65ae245633d0ed038aec742af2f371f2
     );
 
     public static $classMap = array (
+        'AddColumnsToWorkshopTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_17_174635_rename_proposals_table_to_workshops.php',
         'AddFkToApplicantWorkshopPivotTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_11_170211_add_fk_to_applicant_workshop_pivot_table.php',
         'AddFkToClassroomScheduleTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_11_165615_add_fk_to_classroom_schedule_table.php',
         'AddFkToPrimaryTopicsTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_11_160536_add_fk_to_primary_topics_table.php',
@@ -395,6 +396,7 @@ class ComposerStaticInit65ae245633d0ed038aec742af2f371f2
         'DeepCopy\\TypeFilter\\Spl\\SplDoublyLinkedList' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedList.php',
         'DeepCopy\\TypeFilter\\TypeFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php',
         'DeepCopy\\TypeMatcher\\TypeMatcher' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeMatcher/TypeMatcher.php',
+        'DeleteWorkshopTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_17_174537_delete_workshops_table.php',
         'Doctrine\\Common\\Inflector\\Inflector' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector/Inflector.php',
         'Doctrine\\Instantiator\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator/Exception/ExceptionInterface.php',
         'Doctrine\\Instantiator\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator/Exception/InvalidArgumentException.php',
@@ -2627,6 +2629,9 @@ class ComposerStaticInit65ae245633d0ed038aec742af2f371f2
         'Ramsey\\Uuid\\UuidFactory' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidFactory.php',
         'Ramsey\\Uuid\\UuidFactoryInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidFactoryInterface.php',
         'Ramsey\\Uuid\\UuidInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidInterface.php',
+        'RecreateApplicantWorkshop' => __DIR__ . '/../..' . '/database/migrations/2017_04_17_182842_recreate_applicant_workshop.php',
+        'RecreateApplicantWorkshopTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_17_181055_add_columns_and_fks_to_workshops_table.php',
+        'RenameProposalTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_17_174607_delete_proposal_schedule_table.php',
         'SebastianBergmann\\CodeCoverage\\CodeCoverage' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/CodeCoverage.php',
         'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
         'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Driver/Driver.php',
