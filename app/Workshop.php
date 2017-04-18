@@ -10,9 +10,8 @@ class Workshop extends Model
     {
     	return $this->belongsToMany('App\Applicant','applicant_workshop');//'workshop_id','applicant_id');
     }
-    
-    public function Proposal()
+    public function Applicant()
     {
-    	return $this->belongsTo('App\Applicant');//'workshop_id','applicant_id');
+    	return $this->hasMany('App\Schedule');//'workshop_id','applicant_id');
     }
 }

@@ -23,10 +23,30 @@ class ApplicantController extends Controller
     {
     	return Datatables::of(Applicant::query())
 	    ->addColumn('action', function ($applicant) {
-	    	return '<a href="applicants/'.$applicant->id.'/edit" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit"></i> Edit</a>	
+	    	return '<a href="applicants/'.$applicant->id.'/edit" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-edit"></i>Edit</a><a href="applicants/'.$applicant->id.'/details" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit"></i>Details</a>	
 			';
 	    	//return view('applicants.actions', compact('applicant'))->render();
 	    })->make(true);
+    }
+
+    public function detail()
+    {
+        /*$workshops = Workshop::select(['id', 'number']);
+        return Datatables::of($workshops);*/
+        return view('applicants.details');
+    }
+
+    public function DataWorkshop()
+    {
+        $workshops = Applicant::first()->workshops()->with('applicant');
+        $applicant = App\User::find(1);
+
+        foreach ($applicant->workshops as $workshop) {
+            $dates[]=$workshop->pivot->created_at;
+        }
+        return Datatables::of($workshops)
+            ->addColumn('Date',$dates)
+            ->make(true);
     }
 
     /**

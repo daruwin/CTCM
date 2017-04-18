@@ -8,7 +8,7 @@
 <div class="panel-heading">Formulario de postulación</div>
 <div class="panel-body">
 {!! Form::model($applicant,['route'=>['applicants.update',$applicant],'method'=>'put'])!!}
- {!! Field::text('first_name') !!}
+{!! Field::text('first_name') !!}
 {!! Field::text('last_name')!!}
 {!! Field::text('dni') !!}
 {!! Field::text('phone')!!}

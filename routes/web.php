@@ -30,9 +30,10 @@ Route::get('/classrooms.delete/{id}', function($id) {
 	return redirect()->action('ClassroomController@index');
 });
 
-
 Route::resource('applicants', 'ApplicantController');
 Route::get('/applicants.data', 'ApplicantController@Data')->name('applicants.data');
+Route::get('/applicants/{id}/details', 'ApplicantController@detail');
+Route::get('/applicants.dataworkshop', 'ApplicantController@DataWorkshop')->name('applicants.dataworkshop');
 
 Route::resource('proposals', 'ProposalController');
 Route::get('/proposals.data', 'ProposalController@Data')->name('proposals.data');

@@ -11,8 +11,8 @@ class Schedule extends Model
 		return $this->belongsToMany('App\Classroom','ClassroomSchedule');
 	}
 	
-	public function Proposal()
+	public function Workshop()
 	{
-		return $this->belongsToMany('App\Proposal','ProposalSchedule');
+		return $this->belongsto('App\Workshop');
 	}
 }
