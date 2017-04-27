@@ -23,34 +23,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::resource('classrooms', 'ClassroomController');
-Route::get('/classrooms.data', 'ClassroomController@Data')->name('classrooms.data');
-Route::get('/classrooms.delete/{id}', function($id) {
-	DB::table('classrooms')->where('id', $id)->delete();
-	return redirect()->action('ClassroomController@index');
-});
-
 Route::resource('applicants', 'ApplicantController');
 Route::get('/applicants.data', 'ApplicantController@Data')->name('applicants.data');
-Route::get('/applicants/{id}/details', 'ApplicantController@detail');
-Route::get('/applicants.dataworkshop', 'ApplicantController@DataWorkshop')->name('applicants.dataworkshop');
-
-Route::resource('proposals', 'ProposalController');
-Route::get('/proposals.data', 'ProposalController@Data')->name('proposals.data');
-
-Route::resource('teachers', 'TeacherController');
-Route::get('/teachers.data', 'TeacherController@Data')->name('teachers.data');
-
-Route::resource('workers', 'WorkerController');
-Route::get('/workers.data', 'WorkerController@Data')->name('worksers.data');
+Route::get('/applicants/{document}/show', 'ApplicantController@show');
+Route::post('applicants/approve/{id}',array('uses' => 'ApplicantController@postApprove', 'as' => 'application.approve'));
+Route::post('applicants/reject/{id}',array('uses' => 'ApplicantController@postReject', 'as' => 'application.reject'));
+Route::get('/applicants.datashow', 'ApplicantController@Datashow')->name('applicants.datashow');
 
 Route::resource('workshops', 'WorkshopController');
 Route::get('/workshops.data', 'WorkshopController@Data')->name('workshops.data');
-
-// Pendientes
-
-Route::resource('schedules', 'ScheduleController');
-
-Route::resource('temaries', 'TemaryController');
-Route::resource('primary_topics', 'PrimaryTopicController');
-Route::resource('secondary_topics', 'SecondaryTopicController');

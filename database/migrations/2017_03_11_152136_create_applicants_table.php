@@ -14,13 +14,19 @@ class CreateApplicantsTable extends Migration
     public function up()
     {
         Schema::create('applicants', function (Blueprint $table) {
-        	$table->increments('id');
-        	$table->string('first_name');
-        	$table->string('last_name');
-        	$table->string('dni');
-        	$table->string('phone');
-        	$table->string('email');
-        	$table->timestamps();
+            $table->increments('id');
+            $table->string('first_name');
+            $table->string('middle_name');
+            $table->string('first_surname');
+            $table->string('second_surname');
+            $table->string('birth_date');
+            $table->string('document');
+            $table->string('home_phone');
+            $table->string('mobile_phone');
+            $table->string('email');
+            $table->string('workshop_name');
+            $table->enum('status', ['pending', 'approved','rejected']);
+            $table->timestamps();
         });
     }
 
