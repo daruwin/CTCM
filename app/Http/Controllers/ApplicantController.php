@@ -62,10 +62,11 @@ class ApplicantController extends Controller
             $applicants = Applicant::where([
                 ['document', '=', $document],
                 function($query) use($search_values) {
-                foreach ($search_values as $value) {
+                	foreach ($search_values as $value) {
                     $query -> orWhere('workshop_name', 'like', "%{$value}%");
-                }
-            }]) -> paginate(8);
+                	}
+            	}
+				]) -> paginate(8);
             $search_placeholder = 'Results for '.$search_entry;
 
             return view('applicants.show') -> with('applicants', $applicants) -> with('search_placeholder', $search_placeholder);

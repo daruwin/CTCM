@@ -28,10 +28,12 @@
 				<th>{{$applicant->first_surname}}</th>
 				<th>{{$applicant->document}}</th>
 				<th>{{$applicant->email}}</th>
-				<th><a href="applicants/{{$applicant->id}}/edit" class="btn btn-xs btn-danger">
+				<th>
+					<a href="applicants/{{$applicant->id}}/edit" class="btn btn-xs btn-danger">
 						<i class="glyphicon glyphicon-edit"></i>Edit</a>
 					<a href="applicants/{{$applicant->document}}/show" class="btn btn-xs btn-warning">
-						<i class="glyphicon glyphicon-list-alt"></i>Workshops</a></th>
+						<i class="glyphicon glyphicon-list-alt"></i>Workshops</a>
+				</th>
 			</tr>
 		@endforeach
 		</tbody>
