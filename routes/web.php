@@ -24,7 +24,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('applicants', 'ApplicantController');
-Route::get('/applicants.data', 'ApplicantController@Data')->name('applicants.data');
+//Route::get('/applicants.data', 'ApplicantController@Data')->name('applicants.data');
 Route::get('/applicants/{document}/show', 'ApplicantController@show');
 Route::post('applicants/approve/{id}',array('uses' => 'ApplicantController@postApprove', 'as' => 'application.approve'));
 Route::post('applicants/reject/{id}',array('uses' => 'ApplicantController@postReject', 'as' => 'application.reject'));

@@ -1,18 +1,16 @@
 @extends('layouts.index.app') 
 @section('index_content')
-	<h2>{{$applicants[0]->first_name}}
-		{{$applicants[0]->first_surname}} Applications</h3>
-	</br>
-
-	<div class="col-md-8 col-md-offset-2">
-		{!! Form::open(['url' => 'applicants/'.$applicants[0]->document.'/show', 'method' => 'get']) !!}
-		<div class="input-group">
-			{!! Form::text('search_entry', null, ['class' => 'form-control', 'placeholder' => !empty($search_placeholder) ? $search_placeholder : 'Search for...' ]) !!}
-			<span class="input-group-btn">{!! Form::submit('Search', ['class' => 'btn btn-primary']) !!}</span>
-		</div>
-		{!! Form::close() !!}
+<h3>{{$applicants[0]->first_name}}
+	{{$applicants[0]->first_surname}} Applications</h3>
+</br>
+<div class="col-md-8 col-md-offset-2">
+	{!! Form::open(['url' => 'applicants/'.$applicants[0]->document.'/show', 'method' => 'get']) !!}
+	<div class="input-group">
+		{!! Form::text('search_entry', null, ['class' => 'form-control', 'placeholder' => !empty($search_placeholder) ? $search_placeholder : 'Search for...' ]) !!}
+		<span class="input-group-btn">{!! Form::submit('Search', ['class' => 'btn btn-primary']) !!}</span>
 	</div>
-	<br/><br/>
+	{!! Form::close() !!}
+</div><br/><br/>
 <table class="table table-striped">
 	<thead>
 	<th>Id</th>

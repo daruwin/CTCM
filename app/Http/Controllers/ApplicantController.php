@@ -59,17 +59,19 @@ class ApplicantController extends Controller
         if ($search_entry != NULL OR $search_entry != '')
         {
             $search_values = preg_split('/\s+/', $search_entry, -1, PREG_SPLIT_NO_EMPTY);
-            $applicants = Applicant::where([
-                ['document', '=', $document],
-                function($query) use($search_values) {
+            $applicants = Applicant::where(function($query) use($search_values) {
                 	foreach ($search_values as $value) {
-                    $query -> orWhere('workshop_name', 'like', "%{$value}%");
+                        $query -> orWhere('workshop_name', 'like', "%{$value}%");
                 	}
-            	}
-				]) -> paginate(8);
+            	}) ->where('document',$document)-> paginate(8);
             $search_placeholder = 'Results for '.$search_entry;
-
-            return view('applicants.show') -> with('applicants', $applicants) -> with('search_placeholder', $search_placeholder);
+            if($applicants->first())
+                return view('applicants.show') -> with('applicants', $applicants) -> with('search_placeholder', $search_placeholder);
+            else
+            {
+                $applicants = Applicant::where('document', $document)->paginate(8);
+                return view('applicants.show') -> with('applicants', $applicants)-> with('search_placeholder', 'No results :(');
+            }
 
         } else
         {
