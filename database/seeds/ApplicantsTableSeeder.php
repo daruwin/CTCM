@@ -22,7 +22,7 @@ class ApplicantsTableSeeder extends Seeder
             'first_surname' => $faker->lastName,
             'second_surname' => $faker->lastName,
             'birth_date' => $faker->date,
-            'document' => $faker->numberBetween(100,400),//making sure of redundancy
+            'document' => $faker->numberBetween(100,400),
             'home_phone' => $faker->phoneNumber,
             'mobile_phone' => $faker->phoneNumber,
             'email' => $faker->safeEmail,
