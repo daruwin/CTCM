@@ -29,6 +29,7 @@ Route::get('/applicants/{document}/show', 'ApplicantController@show');
 Route::post('applicants/approve/{id}',array('uses' => 'ApplicantController@postApprove', 'as' => 'application.approve'));
 Route::post('applicants/reject/{id}',array('uses' => 'ApplicantController@postReject', 'as' => 'application.reject'));
 Route::get('/applicants.datashow', 'ApplicantController@Datashow')->name('applicants.datashow');
-
+Route::get('/charts','ChartsController@index');
+Route::get('/charts/{name}/{height}', 'ChartsController@show')->name('chart');
 Route::resource('workshops', 'WorkshopController');
 Route::get('/workshops.data', 'WorkshopController@Data')->name('workshops.data');
